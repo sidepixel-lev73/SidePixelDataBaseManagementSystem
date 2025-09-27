@@ -148,12 +148,14 @@ namespace SidePixelDataBaseManagementSystem
             if (newMaterial)
             {
                 DataRow newRow = dataSet.Material.NewRow();
+                /*
                 object DBID = dataSet.Material.Compute("MAX(ID_B)", "");
                 if (DBID != DBNull.Value)
                     newID = Convert.ToInt64(DBID) + 1;
                 else
                     newID = Convert.ToInt64(0);
                 newRow["ID_B"] = newID;
+                */
                 newRow["MaterialName"] = materialNameTextBox.Text;
                 newRow["MaterialMeasurement"] = materialMeasurementTextBox.Text;
                 newRow["MaterialCost"] = Convert.ToDecimal(materialCostTextBox.Text);
@@ -179,12 +181,14 @@ namespace SidePixelDataBaseManagementSystem
             if (newMaterial)
             {
                 DataRow newRow = dataSet.Invoice.NewRow();
+                /*
                 object DBID = dataSet.Invoice.Compute("MAX(ID_A)", "");
                 if (DBID != DBNull.Value)
                     newID = Convert.ToInt64(DBID) + 1;
                 else
                     newID = Convert.ToInt64(0);
                 newRow["ID_A"] = newID;
+                */
                 newRow["FK_B"] = dataSet.Material.Select($"MaterialName = '{invoiceMaterialNameTextBox.Text}'")[0]["ID_B"];
                 newRow["Amount"] = invoiceAmountTextBox.Text;
                 newRow["Date"] = Convert.ToDateTime(invoiceDateTextBox.Text);

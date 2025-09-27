@@ -439,10 +439,10 @@ namespace SidePixelDataBaseManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MaterialRow AddMaterialRow(long ID_B, string MaterialName, string MaterialMeasurement, decimal MaterialCost) {
+            public MaterialRow AddMaterialRow(string MaterialName, string MaterialMeasurement, decimal MaterialCost) {
                 MaterialRow rowMaterialRow = ((MaterialRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID_B,
+                        null,
                         MaterialName,
                         MaterialMeasurement,
                         MaterialCost};
@@ -487,6 +487,7 @@ namespace SidePixelDataBaseManagementSystem {
                 base.Columns.Add(this.columnMaterialCost);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_B}, false));
+                this.columnID_B.AutoIncrement = true;
                 this.columnID_B.Unique = true;
                 this.columnID_B.Caption = "MaterialID";
             }
@@ -732,10 +733,10 @@ namespace SidePixelDataBaseManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public InvoiceRow AddInvoiceRow(long ID_A, MaterialRow parentMaterialRowByFK_Material_Invoice, decimal Amount, System.DateTime Date) {
+            public InvoiceRow AddInvoiceRow(MaterialRow parentMaterialRowByFK_Material_Invoice, decimal Amount, System.DateTime Date) {
                 InvoiceRow rowInvoiceRow = ((InvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID_A,
+                        null,
                         null,
                         Amount,
                         Date};
@@ -781,6 +782,7 @@ namespace SidePixelDataBaseManagementSystem {
                 base.Columns.Add(this.columnAmount);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
+                this.columnID_A.AutoIncrement = true;
                 this.columnID_A.Caption = "InvoiceID";
                 this.columnFK_B.Caption = "InvoiceMaterialID";
                 this.columnAmount.Caption = "InvoiceAmount";
